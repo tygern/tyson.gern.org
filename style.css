@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,700,400italic);
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -9,30 +9,36 @@ body {
 h1 {
   font-size: 4em;
   font-weight: 700;
+
+  margin-bottom: .25em;
 }
 
 a, a:visited {
-  text-decoration: none;
   color: #36A168;
+  text-decoration: none;
 }
 
 .content {
   width: 70%;
-  margin: 0 auto;
+  margin: 3em auto 0 ;
 }
 
 .location {
   font-size: 2em;
   text-transform: uppercase;
-  font-weight: 300;
-
-  margin-bottom: 1em;
+  font-weight: 100;
 
   color: #666666;
 }
 
 .description {
   margin-bottom: 2em;
+  color: #36A168;
+}
+
+.description a {
+  display: inline-block;
+  border-bottom: 3px solid #36A168;
 }
 
 .info .fa {
@@ -40,12 +46,19 @@ a, a:visited {
 
   display: inline-block;
   width: 1em;
-  margin-left: 1em;
-  margin-right: 1.5em;
+  margin-left: .5em;
+  margin-right: .5em;
 
   text-align: center;
 }
 
 .info {
   margin-bottom: .7em;
+}
+
+.info a {
+  position: relative;
+  top: 50%;
+  transform: translateY(-41%);
+  display: inline-block;
 }
