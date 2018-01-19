@@ -10,7 +10,7 @@ html {
     font-size: 18px;
     font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
     color: white;
-    background-color: #003040;
+    background-color: rgb(63, 48, 40);
 }
 
 body {
@@ -23,7 +23,7 @@ main {
     width: 28rem;
     max-width: 100%;
     padding: 1rem;
-    background-color: rgba(0, 48, 64, .7);
+    background-color: rgba(63, 48, 40, .7);
     border-radius: .3rem;
 }
 
