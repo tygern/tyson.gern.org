@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="theme-color" content="#15616D">
+    <meta name="theme-color" content="#7180B9">
 
     <meta property="og:title" content="Tyson Gern"/>
     <meta property="og:type" content="website"/>
@@ -78,14 +78,16 @@
         :root {
             --black: #221D23;
             --white: #F8F8F8;
-            --accent: #15616D;
+            --accent: #7180B9;
 
             --text-color: var(--black);
             --background-color: var(--white);
             --subtitle-color: var(--accent);
             --underline-color: var(--accent);
 
-            --body-padding: 2rem;
+            --body-top-padding: 3rem;
+            --body-inline-padding: 2rem;
+            --header-image-size: 15rem;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -112,8 +114,8 @@
 
             min-height: 100vh;
             max-width: 50rem;
-            padding-top: 5rem;
-            padding-inline: var(--body-padding);
+            padding-top: var(--body-top-padding);
+            padding-inline: var(--body-inline-padding);
             margin-inline: auto;
         }
 
@@ -145,25 +147,28 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.5rem;
+                width: 100%;
 
                 p {
                     color: var(--subtitle-color);
                     font-size: 1.6rem;
                     font-style: italic;
+                    text-wrap: balance;
                 }
             }
 
             img {
-                height: 12rem;
-                width: 12rem;
+                height: var(--header-image-size);
+                width: var(--header-image-size);
                 border-radius: 50%;
-                border: 6px solid var(--text-color);
             }
         }
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 670px) {
             :root {
-                --body-padding: 1rem;
+                --body-top-padding: 2rem;
+                --body-inline-padding: 1rem;
+                --header-image-size: 10rem;
             }
 
             header {
