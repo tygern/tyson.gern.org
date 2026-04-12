@@ -1,221 +1,628 @@
 <!doctype html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <meta name="theme-color" content="#7180B9">
+        <meta name="theme-color" content="#7180B9" />
 
-    <meta property="og:title" content="Tyson Gern"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:description" content="Founding partner at Initial Capacity"/>
-    <meta property="og:url" content="https://tyson.gern.org"/>
-    <meta property="og:image" content="https://tyson.gern.org/images/profile.webp"/>
+        <meta property="og:title" content="Tyson Gern" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:description"
+            content="Founding partner at Initial Capacity"
+        />
+        <meta property="og:url" content="https://tyson.gern.org" />
+        <meta
+            property="og:image"
+            content="https://tyson.gern.org/images/profile.webp"
+        />
 
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:domain" content="tyson.gern.org"/>
-    <meta name="twitter:title" content="Tyson Gern"/>
-    <meta name="twitter:description" content="Founding partner at Initial Capacity"/>
-    <meta name="twitter:url" content="https://tyson.gern.org"/>
-    <meta name="twitter:image" content="https://tyson.gern.org/images/profile.webp"/>
-
-    <title>Tyson Gern</title>
-
-    <link rel="shortcut icon" href="./images/favicon.png">
-    <link rel="shortcut icon" type="image/svg+xml" sizes="any" href="./images/favicon.svg">
-
-    <style>
-        html, body, div, span, applet, object, iframe,
-        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-        a, abbr, acronym, address, big, cite, code,
-        del, dfn, em, img, ins, kbd, q, s, samp,
-        small, strike, strong, sub, sup, tt, var,
-        b, u, i, center,
-        dl, dt, dd, ol, ul, li,
-        fieldset, form, label, legend,
-        table, caption, tbody, tfoot, thead, tr, th, td,
-        article, aside, canvas, details, embed,
-        figure, figcaption, footer, header, hgroup,
-        menu, nav, output, ruby, section, summary,
-        time, mark, audio, video {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            vertical-align: baseline;
-        }
-
-        /* HTML5 display-role reset for older browsers */
-        article, aside, details, figcaption, figure,
-        footer, header, hgroup, menu, nav, section {
-            display: block;
-        }
-
-        body {
-            line-height: 1;
-        }
-
-        ol, ul {
-            list-style: none;
-        }
-
-        blockquote, q {
-            quotes: none;
-        }
-
-        blockquote:before, blockquote:after,
-        q:before, q:after {
-            content: '';
-            content: none;
-        }
-
-        table {
-            border-collapse: collapse;
-            border-spacing: 0;
-        }
-
-        :root {
-            --black: #221D23;
-            --white: #F8F8F8;
-            --accent: #7180B9;
-
-            --text-color: var(--black);
-            --background-color: var(--white);
-            --subtitle-color: var(--accent);
-            --underline-color: var(--accent);
-
-            --body-top-padding: 3rem;
-            --body-inline-padding: 2rem;
-            --header-image-size: 15rem;
-        }
-
-        @media (prefers-color-scheme: dark) {
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:domain" content="tyson.gern.org" />
+        <meta name="twitter:title" content="Tyson Gern" />
+        <meta
+            name="twitter:description"
+            content="Founding partner at Initial Capacity"
+        />
+        <meta name="twitter:url" content="https://tyson.gern.org" />
+        <meta
+            name="twitter:image"
+            content="https://tyson.gern.org/images/profile.webp"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <style>
             :root {
-                --text-color: var(--white);
-                --background-color: var(--black);
+                --primary: #4a6274;
+                --primary-container: #5d7a91;
+                --on-primary: #ffffff;
+                --on-surface: #1a1c1e;
+                --on-surface-variant: #43474e;
+                --surface: #f8f9fa;
+                --surface-container: #eef1f4;
+                --surface-container-low: #f1f4f7;
+                --outline: #73777f;
+                --outline-variant: rgba(115, 119, 127, 0.2);
+                --font-stack:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Helvetica, Arial, sans-serif, "Apple Color Emoji",
+                    "Segoe UI Emoji", "Segoe UI Symbol";
             }
-        }
 
-        html {
-            font-size: 16px;
-            background-color: var(--background-color);
-            box-sizing: border-box;
-            accent-color: var(--accent);
-        }
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
+            body {
+                background-color: var(--surface);
+                color: var(--on-surface);
+                font-family: var(--font-stack);
+                line-height: 1.5;
+                -webkit-font-smoothing: antialiased;
+                overflow-x: hidden;
+            }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-            color: var(--text-color);
+            .container {
+                max-width: 1024px;
+                margin: 0 auto;
+                padding: 4rem 2rem;
+            }
 
-            min-height: 100vh;
-            max-width: 50rem;
-            padding-top: var(--body-top-padding);
-            padding-inline: var(--body-inline-padding);
-            margin-inline: auto;
-        }
-
-        h1 {
-            font-weight: 600;
-            font-size: 4rem;
-        }
-
-        p {
-            font-size: 1.25rem;
-            line-height: 1.5;
-
-            margin-bottom: 1.5rem;
-        }
-
-        a, a:visited {
-            color: unset;
-            text-decoration-color: var(--underline-color);
-            text-underline-offset: 2px;
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-
-            hgroup {
-                display: flex;
-                flex-direction: column;
-                gap: 1.5rem;
-                width: 100%;
-
-                p {
-                    color: var(--subtitle-color);
-                    font-size: 1.6rem;
-                    text-wrap: balance;
+            @media (min-width: 768px) {
+                .container {
+                    padding: 8rem 2rem;
                 }
             }
 
-            img {
-                height: var(--header-image-size);
-                width: var(--header-image-size);
-                border-radius: 50%;
+            /* Hero Section */
+            .hero {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+                align-items: center;
+                margin-bottom: 8rem;
+            }
+
+            @media (min-width: 768px) {
+                .hero {
+                    flex-direction: row;
+                    gap: 5rem;
+                    align-items: flex-start;
+                }
+            }
+
+            .profile-img-container {
                 flex-shrink: 0;
             }
-        }
 
-        @media screen and (max-width: 670px) {
-            :root {
-                --body-top-padding: 2rem;
-                --body-inline-padding: 1rem;
-                --header-image-size: 10rem;
+            .profile-img {
+                width: 12rem;
+                height: 12rem;
+                object-fit: cover;
+                border-radius: 0.5rem; /* ROUND_FOUR style roughly translates to 0.5rem for large images */
+                transition: filter 0.7s ease;
+                background-color: var(--surface-container);
             }
 
-            header {
+            @media (min-width: 768px) {
+                .profile-img {
+                    width: 16rem;
+                    height: 16rem;
+                }
+            }
+
+            .hero-content {
+                flex-grow: 1;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 900;
+                line-height: 1.1;
+                margin-bottom: 1rem;
+                letter-spacing: -0.025em;
+            }
+
+            @media (min-width: 768px) {
+                h1 {
+                    font-size: 3.75rem;
+                }
+            }
+
+            .headline-sub {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--primary);
+                margin-bottom: 1.5rem;
+                letter-spacing: -0.025em;
+            }
+
+            @media (min-width: 768px) {
+                .headline-sub {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .social-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+                color: var(--on-surface-variant);
+            }
+
+            .social-link {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                text-decoration: none;
+                color: inherit;
+                transition: color 0.2s ease;
+            }
+
+            .social-link:hover {
+                color: var(--primary);
+            }
+
+            .social-link .text-sm {
+                font-size: 0.875rem;
+                font-weight: 500;
+            }
+
+            .hero-statement {
+                font-size: 1.125rem;
+                line-height: 1.6;
+                color: var(--on-surface-variant);
+                font-style: italic;
+                max-width: 42rem;
+                margin-bottom: 2rem;
+            }
+
+            @media (min-width: 768px) {
+                .hero-statement {
+                    font-size: 1.25rem;
+                }
+            }
+
+            .tag-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .tag {
+                padding: 0.25rem 0.75rem;
+                background-color: var(--surface-container);
+                color: var(--on-surface-variant);
+                border-radius: 0.25rem; /* ROUND_FOUR */
+                font-size: 0.75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            /* Content Grid */
+            .content-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                margin-bottom: 8rem;
+            }
+
+            @media (min-width: 768px) {
+                .content-grid {
+                    grid-template-columns: repeat(12, minmax(0, 1fr));
+                }
+                .content-main {
+                    grid-column: span 7;
+                }
+                .content-side {
+                    grid-column: span 5;
+                }
+            }
+
+            .section-label {
+                font-size: 0.875rem;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.2em;
+                color: var(--outline);
+                margin-bottom: 2rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .narrative-text {
+                font-size: 1.125rem;
+                color: var(--on-surface);
+                line-height: 1.75;
+            }
+
+            .narrative-text p {
+                margin-bottom: 1.5rem;
+            }
+
+            .font-bold {
+                font-weight: 700;
+            }
+            .text-primary {
+                color: var(--primary);
+            }
+            .italic {
+                font-style: italic;
+            }
+
+            /* Side Sections */
+            .expertise-list {
+                list-style: none;
+                display: flex;
                 flex-direction: column;
+                gap: 1.5rem;
+                margin-bottom: 3rem;
             }
-        }
-    </style>
-</head>
-<body>
-<header>
-    <img src="./images/profile.webp" alt="Tyson Gern profile photo">
-    <hgroup>
-        <h1>Tyson Gern</h1>
-        <p>Founding partner at Initial Capacity</p>
-    </hgroup>
-</header>
 
-<p>
-    I'm a founding partner at <a href="https://initialcapacity.io">Initial Capacity</a>, a software consultancy of lead
-    developers building applications at scale for startups and the world's largest companies.
-    I also teach a course on the
-    <a href="https://www.colorado.edu/cs/csci-5828-foundations-software-engineering">Foundations of Software
-        Engineering</a> at the <a href="https://www.colorado.edu/ali/faculty-partners/tyson-gern">University of Colorado
-    Boulder</a>.
-</p>
+            .expertise-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem;
+            }
 
-<p>
-    Prior to Initial Capacity, I spent eight years with Pivotal Labs building software for customers ranging from
-    early stage startups to industry leading enterprises.
-    I worked with customers to ship production software, build engineering teams, and enhance developer
-    capabilities.
-    I helped to build the award-winning Platform Acceleration Lab and to start the Pivotal Labs Dublin office.
-</p>
+            .expertise-item .material-symbols-outlined {
+                color: var(--primary);
+            }
 
-<p>
-    I have a PhD in Mathematics&mdash;in the field of algebraic combinatorics&mdash;from the University of Colorado,
-    Boulder.
-    Read my <a href="http://arxiv.org/abs/1304.6074">PhD thesis</a> for more information about my mathematical
-    interests.
-</p>
+            .expertise-title {
+                font-weight: 700;
+                color: var(--on-surface);
+                margin-bottom: 0.25rem;
+            }
 
-<p>
-    Find my thoughts on building software products on <a
-        href="https://www.infoq.com/profile/Tyson-Gern//">InfoQ</a>, <a href="https://github.com/tygern">GitHub</a>, and
-    <a href="https://www.linkedin.com/in/tysongern">LinkedIn</a>.
-</p>
-</body>
+            .expertise-desc {
+                font-size: 0.875rem;
+                color: var(--on-surface-variant);
+            }
+
+            .project-card {
+                display: block;
+                padding: 1.5rem;
+                background-color: var(--primary);
+                color: var(--on-primary);
+                border-radius: 0.5rem; /* ROUND_FOUR */
+                text-decoration: none;
+                transition: background-color 0.2s ease;
+            }
+
+            .project-card:hover {
+                background-color: var(--primary-container);
+            }
+
+            .project-card .label {
+                font-size: 0.625rem;
+                text-transform: uppercase;
+                letter-spacing: 0.2em;
+                opacity: 0.8;
+                margin-bottom: 0.5rem;
+            }
+
+            .project-card .content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .project-card h4 {
+                font-size: 1.25rem;
+                font-weight: 700;
+            }
+
+            /* Footer Section */
+            .footer-section {
+                padding-top: 6rem;
+                border-top: 1px solid var(--outline-variant);
+            }
+
+            .footer-flex {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            @media (min-width: 768px) {
+                .footer-flex {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            }
+
+            .footer-info {
+                max-width: 28rem;
+            }
+
+            .footer-info h2 {
+                font-size: 1.5rem;
+                font-weight: 900;
+                margin-bottom: 1rem;
+                letter-spacing: -0.025em;
+            }
+
+            .footer-info p {
+                color: var(--on-surface-variant);
+                line-height: 1.6;
+            }
+
+            .copyright {
+                margin-top: 2rem;
+                font-size: 0.875rem;
+                color: var(--outline);
+            }
+
+            .grid-buttons {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .action-button {
+                padding: 2rem;
+                background-color: var(--surface-container-low);
+                border-radius: 0.5rem;
+                border: 1px solid var(--outline-variant);
+                text-decoration: none;
+                color: inherit;
+                text-align: center;
+                transition: all 0.2s ease;
+            }
+
+            .action-button:hover {
+                border-color: var(--primary);
+                background-color: var(--surface-container);
+            }
+
+            .action-button .material-symbols-outlined {
+                color: var(--primary);
+                font-size: 1.875rem;
+                margin-bottom: 0.75rem;
+                display: block;
+            }
+
+            .action-button .btn-label {
+                font-size: 0.875rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+            }
+
+            .material-symbols-outlined {
+                font-variation-settings:
+                    "FILL" 0,
+                    "wght" 400,
+                    "GRAD" 0,
+                    "opsz" 24;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="container">
+            <section class="hero">
+                <div class="profile-img-container">
+                    <img
+                        alt="Professional studio portrait of Tyson Gern"
+                        class="profile-img"
+                        src="./images/profile.webp"
+                    />
+                </div>
+                <div class="hero-content">
+                    <h1>Tyson Gern, PhD</h1>
+                    <p class="headline-sub">
+                        Founding partner at Initial Capacity.
+                    </p>
+                    <div class="social-links">
+                        <a
+                            class="social-link"
+                            href="https://bsky.app/profile/tysongern.bsky.social"
+                        >
+                            <span class="material-symbols-outlined"
+                                >alternate_email</span
+                            >
+                            <span class="text-sm">Bluesky</span>
+                        </a>
+                        <a
+                            class="social-link"
+                            href="https://hachyderm.io/@tysongern"
+                        >
+                            <span class="material-symbols-outlined">hub</span>
+                            <span class="text-sm">Mastodon</span>
+                        </a>
+                        <a
+                            class="social-link"
+                            href="https://www.linkedin.com/in/tysongern/"
+                        >
+                            <span class="material-symbols-outlined">link</span>
+                            <span class="text-sm">LinkedIn</span>
+                        </a>
+                        <a class="social-link" href="https://github.com/tygern">
+                            <span class="material-symbols-outlined"
+                                >terminal</span
+                            >
+                            <span class="text-sm">GitHub</span>
+                        </a>
+                    </div>
+                    <p class="hero-statement">
+                        I believe in software as a craft—a delicate balance of
+                        mathematical precision and human collaboration.
+                    </p>
+                    <div class="tag-container">
+                        <span class="tag">Engineer</span>
+                        <span class="tag">Leader</span>
+                        <span class="tag">Speaker</span>
+                        <span class="tag">Mathematician</span>
+                    </div>
+                </div>
+            </section>
+            <section class="content-grid">
+                <div class="content-main">
+                    <h2 class="section-label">Engineering Narrative</h2>
+                    <div class="narrative-text">
+                        <p>
+                            I'm a founding partner at
+                            <span class="font-bold text-primary"
+                                >Initial Capacity</span
+                            >, a software consultancy of lead developers
+                            building applications at scale for startups and the
+                            world's largest companies. I'm a firm believer that
+                            the first few weeks of a new codebase may just be
+                            the most important code you’ll write.
+                        </p>
+                        <p>
+                            My journey in technology is began in academia. I
+                            serve as a lecturer at the
+                            <span class="italic"
+                                >University of Colorado Boulder</span
+                            >, where I teach the next generation of engineers
+                            the nuances of software development and system
+                            design.
+                        </p>
+                        <p>
+                            Before Initial Capacity, I spent significant time at
+                            <span class="font-bold">Pivotal Labs</span>, working
+                            with some of the world's most complex engineering
+                            organizations to transform their delivery practices.
+                            This professional experience is built on a rigorous
+                            foundation: a
+                            <span class="font-bold">PhD in Mathematics</span>,
+                            which informs my perspective on logic, structure,
+                            and engineering elegance.
+                        </p>
+                    </div>
+                </div>
+                <div class="content-side">
+                    <h3 class="section-label">Expertise</h3>
+                    <ul class="expertise-list">
+                        <li class="expertise-item">
+                            <span class="material-symbols-outlined"
+                                >deployed_code</span
+                            >
+                            <div>
+                                <p class="expertise-title">Shipping Software</p>
+                                <p class="expertise-desc">
+                                    AI Engineering, Rapid Delivery, &amp; Fast
+                                    Feedback
+                                </p>
+                            </div>
+                        </li>
+                        <li class="expertise-item">
+                            <span class="material-symbols-outlined"
+                                >groups</span
+                            >
+                            <div>
+                                <p class="expertise-title">Building Teams</p>
+                                <p class="expertise-desc">
+                                    Mentorship, Growth, &amp; Engineering
+                                    Culture
+                                </p>
+                            </div>
+                        </li>
+                        <li class="expertise-item">
+                            <span class="material-symbols-outlined"
+                                >architecture</span
+                            >
+                            <div>
+                                <p class="expertise-title">
+                                    Architecture and Design
+                                </p>
+                                <p class="expertise-desc">
+                                    Distributed Systems, Big Architecture, &amp;
+                                    Scalability
+                                </p>
+                            </div>
+                        </li>
+                        <li class="expertise-item">
+                            <span class="material-symbols-outlined"
+                                >science</span
+                            >
+                            <div>
+                                <p class="expertise-title">
+                                    Data &amp; Research
+                                </p>
+                                <p class="expertise-desc">
+                                    Mathematical Modeling, Insights, &amp;
+                                    Analysis
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a class="project-card" href="https://initialcapacity.io">
+                        <p class="label">Work with me</p>
+                        <div class="content">
+                            <h4>Initial Capacity</h4>
+                            <span class="material-symbols-outlined"
+                                >arrow_forward</span
+                            >
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section class="footer-section">
+                <div class="footer-flex">
+                    <div class="footer-info">
+                        <h2>Intellectual Footprint</h2>
+                        <p>
+                            Beyond building software, I explore technology
+                            through writing and speaking.
+                        </p>
+                        <p class="copyright">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            Tyson Gern.
+                        </p>
+                    </div>
+                    <div class="grid-buttons">
+                        <a
+                            class="action-button"
+                            href="https://www.infoq.com/profile/Tyson-Gern"
+                        >
+                            <span class="material-symbols-outlined"
+                                >edit_note</span
+                            >
+                            <span class="btn-label">Writing</span>
+                        </a>
+                        <a
+                            class="action-button"
+                            href="https://www.colorado.edu/ali/faculty-partners/tyson-gern"
+                        >
+                            <span class="material-symbols-outlined"
+                                >code_blocks</span
+                            >
+                            <span class="btn-label">Teaching</span>
+                        </a>
+                        <a
+                            class="action-button"
+                            href="https://sessionize.com/tysongern/"
+                        >
+                            <span class="material-symbols-outlined">forum</span>
+                            <span class="btn-label">Speaking</span>
+                        </a>
+                        <a
+                            class="action-button"
+                            href="https://arxiv.org/abs/1304.6074"
+                        >
+                            <span class="material-symbols-outlined"
+                                >science</span
+                            >
+                            <span class="btn-label">Research</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
 </html>
