@@ -160,6 +160,7 @@
 
             body {
                 margin: 0;
+                position: relative;
                 background-color: var(--background-color);
                 color: var(--text-color);
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -168,6 +169,47 @@
                 line-height: 1.5;
                 -webkit-font-smoothing: antialiased;
                 overflow-x: hidden;
+            }
+
+            /* Slow-breathing wash: ±1.5% over 160s — felt on a long dwell,
+               never seen moving. Oversized so the drift never exposes an edge. */
+            body::before {
+                content: "";
+                position: absolute;
+                top: -10vh;
+                left: -5vw;
+                right: -5vw;
+                height: 120vh;
+                z-index: -1;
+                background: radial-gradient(
+                    ellipse 55% 45% at 20% 10%,
+                    var(--hero-wash-color),
+                    transparent 70%
+                );
+                animation: wash-drift 160s ease-in-out infinite alternate;
+                pointer-events: none;
+            }
+
+            @keyframes wash-drift {
+                from {
+                    transform: translate3d(-1.5%, -1%, 0);
+                }
+                to {
+                    transform: translate3d(1.5%, 1.5%, 0);
+                }
+            }
+
+            /* Basketweave domino tiling across the whole page. */
+            body::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+                background-color: var(--primary-color);
+                opacity: 0.045;
+                mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23000'%3E%3Crect x='0' y='0' width='48' height='24'/%3E%3Crect x='0' y='24' width='48' height='24'/%3E%3Crect x='48' y='0' width='24' height='48'/%3E%3Crect x='72' y='0' width='24' height='48'/%3E%3Crect x='0' y='48' width='24' height='48'/%3E%3Crect x='24' y='48' width='24' height='48'/%3E%3Crect x='48' y='48' width='48' height='24'/%3E%3Crect x='48' y='72' width='48' height='24'/%3E%3C/g%3E%3C/svg%3E");
+                mask-repeat: repeat;
+                pointer-events: none;
             }
 
             h1, h2, h3, h4, p, ul {
@@ -201,8 +243,6 @@
                 gap: 3rem;
                 align-items: center;
                 margin-bottom: 8rem;
-                position: relative;
-                isolation: isolate;
 
                 @media (min-width: 768px) {
                     flex-direction: row;
@@ -225,45 +265,6 @@
                         height: 16rem;
                     }
                 }
-            }
-
-            /* Slow-breathing wash: ±1.5% over 160s — felt on a long dwell, never seen moving. */
-            .hero::before {
-                content: "";
-                position: absolute;
-                inset: -15% -10%;
-                z-index: -2;
-                background: radial-gradient(
-                    ellipse 60% 50% at 25% 8%,
-                    var(--hero-wash-color),
-                    transparent 70%
-                );
-                animation: wash-drift 160s ease-in-out infinite alternate;
-                pointer-events: none;
-            }
-
-            @keyframes wash-drift {
-                from {
-                    transform: translate3d(-1.5%, -1%, 0);
-                }
-                to {
-                    transform: translate3d(1.5%, 1.5%, 0);
-                }
-            }
-
-            /* Basketweave domino tiling, faded before it reaches the text column. */
-            .hero::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                z-index: -1;
-                background-color: var(--primary-color);
-                opacity: 0.05;
-                mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23000'%3E%3Crect x='0' y='0' width='48' height='24'/%3E%3Crect x='0' y='24' width='48' height='24'/%3E%3Crect x='48' y='0' width='24' height='48'/%3E%3Crect x='72' y='0' width='24' height='48'/%3E%3Crect x='0' y='48' width='24' height='48'/%3E%3Crect x='24' y='48' width='24' height='48'/%3E%3Crect x='48' y='48' width='48' height='24'/%3E%3Crect x='48' y='72' width='48' height='24'/%3E%3C/g%3E%3C/svg%3E"),
-                    radial-gradient(ellipse 80% 110% at 15% 0%, black 30%, transparent 75%);
-                mask-composite: intersect;
-                mask-repeat: repeat, no-repeat;
-                pointer-events: none;
             }
 
             .portrait {
