@@ -387,9 +387,16 @@
 
                 & span {
                     padding: 0.25rem 0.75rem;
-                    /* opaque so the domino pattern never shows through a pill */
+                    /* opaque so the domino pattern never shows through a pill;
+                       border a step stronger than the weave's hairlines so the
+                       pills sit above the texture, not in it */
                     background-color: var(--background-color);
-                    border: 1px solid var(--border-color);
+                    border: 1px solid
+                        color-mix(
+                            in srgb,
+                            var(--text-muted-color) 45%,
+                            transparent
+                        );
                     color: var(--text-secondary-color);
                     border-radius: 0.25rem;
                     font-size: 0.75rem;
