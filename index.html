@@ -23,7 +23,9 @@
             property="og:description"
             content="Founding partner at Initial Capacity"
         />
-        <meta property="og:url" content="https://tyson.gern.org" />
+        <meta property="og:url" content="https://tyson.gern.org/" />
+        <meta property="og:site_name" content="Tyson Gern" />
+        <meta property="og:locale" content="en_US" />
         <meta
             property="og:image"
             content="https://tyson.gern.org/images/profile.webp"
@@ -39,7 +41,7 @@
             name="twitter:description"
             content="Founding partner at Initial Capacity"
         />
-        <meta name="twitter:url" content="https://tyson.gern.org" />
+        <meta name="twitter:url" content="https://tyson.gern.org/" />
         <meta
             name="twitter:image"
             content="https://tyson.gern.org/images/profile.webp"
@@ -83,10 +85,9 @@
                 --white: #ffffff;
 
                 --primary-color: light-dark(#4a6274, #7f9bb0);
-                --primary-hover-color: light-dark(#5d7a91, #92aec2);
                 --text-color: light-dark(#1a1c1e, #e7ebee);
                 --text-secondary-color: light-dark(#43474e, #b9c1c8);
-                --text-muted-color: light-dark(#73777f, #8d959d);
+                --text-muted-color: light-dark(#696d75, #8d959d);
                 --background-color: light-dark(#f8f9fa, #161b20);
                 --surface-color: light-dark(#eef1f4, #222b33);
                 --surface-subtle-color: light-dark(#f1f4f7, #1b232a);
@@ -107,10 +108,9 @@
             }
 
             @property --primary-color { syntax: "<color>"; inherits: true; initial-value: #4a6274; }
-            @property --primary-hover-color { syntax: "<color>"; inherits: true; initial-value: #5d7a91; }
             @property --text-color { syntax: "<color>"; inherits: true; initial-value: #1a1c1e; }
             @property --text-secondary-color { syntax: "<color>"; inherits: true; initial-value: #43474e; }
-            @property --text-muted-color { syntax: "<color>"; inherits: true; initial-value: #73777f; }
+            @property --text-muted-color { syntax: "<color>"; inherits: true; initial-value: #696d75; }
             @property --background-color { syntax: "<color>"; inherits: true; initial-value: #f8f9fa; }
             @property --surface-color { syntax: "<color>"; inherits: true; initial-value: #eef1f4; }
             @property --surface-subtle-color { syntax: "<color>"; inherits: true; initial-value: #f1f4f7; }
@@ -123,7 +123,7 @@
             /* Added after first paint so the initial render doesn't fade in;
                makes an OS light/dark flip cross-fade like dusk instead of snapping. */
             html.theme-fade {
-                transition: --primary-color 0.8s ease, --primary-hover-color 0.8s ease,
+                transition: --primary-color 0.8s ease,
                     --text-color 0.8s ease, --text-secondary-color 0.8s ease,
                     --text-muted-color 0.8s ease, --background-color 0.8s ease,
                     --surface-color 0.8s ease, --surface-subtle-color 0.8s ease,
@@ -273,16 +273,18 @@
                 flex-shrink: 0;
             }
 
-            /* Ambient glow: the portrait's own colors bleed softly into the page. */
+            /* Ambient glow: the portrait's own colors bleed softly into the
+               page. Uses a small pre-scaled copy so the 800px master isn't
+               decoded and blurred twice. */
             .portrait::before {
                 content: "";
                 position: absolute;
                 inset: -8%;
                 z-index: -1;
-                background: url(./images/profile.webp) center / cover;
+                background: url(./images/profile-glow.webp) center / cover;
                 filter: blur(42px) saturate(1.15);
                 border-radius: 1rem;
-                opacity: 0.25;
+                opacity: 0.32;
             }
 
             @media (prefers-color-scheme: dark) {
@@ -525,7 +527,7 @@
                     justify-content: space-between;
                 }
 
-                & h4 {
+                & .card-title {
                     font-size: 1.25rem;
                     font-weight: 700;
                 }
@@ -537,30 +539,34 @@
             }
 
             /* Scroll-linked: the rule draws outward from center as the footer
-               enters the viewport. Unsupported browsers keep the static border. */
-            @supports (animation-timeline: view()) {
-                .footer-section {
-                    border-top-color: transparent;
-                    position: relative;
+               enters the viewport. Unsupported browsers keep the static
+               border. Gated on reduced-motion explicitly — the global clamp
+               zeroes durations, which scroll-driven timelines ignore. */
+            @media (prefers-reduced-motion: no-preference) {
+                @supports (animation-timeline: view()) {
+                    .footer-section {
+                        border-top-color: transparent;
+                        position: relative;
 
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: 50%;
-                        width: 0;
-                        height: 1px;
-                        background-color: var(--border-color);
-                        animation: draw-hairline linear both;
-                        animation-timeline: view();
-                        animation-range: entry 0% entry 80%;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 50%;
+                            width: 0;
+                            height: 1px;
+                            background-color: var(--border-color);
+                            animation: draw-hairline linear both;
+                            animation-timeline: view();
+                            animation-range: entry 0% entry 80%;
+                        }
                     }
-                }
 
-                @keyframes draw-hairline {
-                    to {
-                        width: 100%;
-                        left: 0;
+                    @keyframes draw-hairline {
+                        to {
+                            width: 100%;
+                            left: 0;
+                        }
                     }
                 }
             }
@@ -738,7 +744,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="section-label">Expertise</h3>
+                    <h2 class="section-label">Expertise</h2>
                     <ul class="expertise-list">
                         <li>
                             <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-183v-274L200-596v274l240 139Zm80 0 240-139v-274L520-457v274Zm-40-343 237-137-237-137-237 137 237 137ZM160-252q-19-11-29.5-29T120-321v-318q0-22 10.5-40t29.5-29l280-161q19-11 40-11t40 11l280 161q19 11 29.5 29t10.5 40v318q0 22-10.5 40T800-252L520-91q-19 11-40 11t-40-11L160-252Zm320-228Z"/></svg>
@@ -788,13 +794,13 @@
                     <a class="project-card" href="https://initialcapacity.io">
                         <p class="label">Work with me</p>
                         <div class="content">
-                            <h4>Initial Capacity</h4>
+                            <p class="card-title">Initial Capacity</p>
                             <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
                         </div>
                     </a>
                 </div>
             </section>
-            <section class="footer-section">
+            <footer class="footer-section">
                 <div class="footer-flex">
                     <div class="footer-info">
                         <h2>Intellectual Footprint</h2>
@@ -835,7 +841,7 @@
                         </a>
                     </div>
                 </div>
-            </section>
+            </footer>
         </main>
         <script>
             requestAnimationFrame(() =>
