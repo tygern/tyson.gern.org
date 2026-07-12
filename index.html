@@ -533,6 +533,43 @@
                 }
             }
 
+            .writing-section {
+                margin-bottom: 8rem;
+            }
+
+            .writing-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+
+                @media (min-width: 768px) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                & a {
+                    display: block;
+                    text-decoration: none;
+                    color: inherit;
+
+                    &:hover .writing-title {
+                        color: var(--primary-color);
+                    }
+                }
+
+                & .writing-title {
+                    font-weight: 700;
+                    line-height: 1.4;
+                    margin-bottom: 0.35rem;
+                    text-wrap: balance;
+                    transition: color 0.2s ease;
+                }
+
+                & .writing-meta {
+                    font-size: 0.875rem;
+                    color: var(--text-muted-color);
+                }
+            }
+
             .footer-section {
                 padding-top: 6rem;
                 border-top: 1px solid var(--border-color);
@@ -795,6 +832,37 @@
                             <p class="card-title">Initial Capacity</p>
                             <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
                         </div>
+                    </a>
+                </div>
+            </section>
+            <section class="writing-section">
+                <h2 class="section-label">Selected Writing</h2>
+                <div class="writing-grid">
+                    <a
+                        href="https://www.infoq.com/articles/html-streaming-dom-updates-without-javascript/"
+                    >
+                        <p class="writing-title">
+                            Streaming HTML &ndash; Asynchronous DOM Updates
+                            without JavaScript
+                        </p>
+                        <p class="writing-meta">InfoQ &middot; 2024</p>
+                    </a>
+                    <a
+                        href="https://www.infoq.com/articles/no-need-css-framework/"
+                    >
+                        <p class="writing-title">
+                            You Don&rsquo;t Need a CSS Framework
+                        </p>
+                        <p class="writing-meta">InfoQ &middot; 2024</p>
+                    </a>
+                    <a
+                        href="https://www.infoq.com/articles/testing-pyramid-slow-fast-tests/"
+                    >
+                        <p class="writing-title">
+                            A Simpler Testing Pyramid: Getting the Most out of
+                            Your Tests
+                        </p>
+                        <p class="writing-meta">InfoQ &middot; 2023</p>
                     </a>
                 </div>
             </section>
