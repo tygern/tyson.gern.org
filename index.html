@@ -575,39 +575,6 @@
                 border-top: 1px solid var(--border-color);
             }
 
-            /* Scroll-linked: the rule draws outward from center as the footer
-               enters the viewport. Unsupported browsers keep the static
-               border. Gated on reduced-motion explicitly — the global clamp
-               zeroes durations, which scroll-driven timelines ignore. */
-            @media (prefers-reduced-motion: no-preference) {
-                @supports (animation-timeline: view()) {
-                    .footer-section {
-                        border-top-color: transparent;
-                        position: relative;
-
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            top: 0;
-                            left: 50%;
-                            width: 0;
-                            height: 1px;
-                            background-color: var(--border-color);
-                            animation: draw-hairline linear both;
-                            animation-timeline: view();
-                            animation-range: entry 0% entry 80%;
-                        }
-                    }
-
-                    @keyframes draw-hairline {
-                        to {
-                            width: 100%;
-                            left: 0;
-                        }
-                    }
-                }
-            }
-
             .footer-flex {
                 display: flex;
                 flex-direction: column;
